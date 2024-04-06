@@ -21,40 +21,44 @@ namespace pb.tp7.Models
 		{
 			bool turmaCheia = this.alunos.Count >= 10;
 
-			if (turmaCheia) return "Turma Cheia!";
-
-			this.alunos.Add(aluno);
-		        return "Aluno adicionado!";
-		
+			if (turmaCheia)
+			{
+				return "Turma Cheia!";
+			}
+			else
+			{
+				this.alunos.Add(aluno);
+				return "Aluno adicionado!";
+			}
 		}
 
 
 		public bool abrirTurma()
 		{
-	            bool temNumeroAdequadoAlunos = this.alunos.Count >= 2 && this.alunos.Count <=10;
+	        bool temNumeroAdequadoAlunos = this.alunos.Count >= 2 && this.alunos.Count <=10;
 			if (temNumeroAdequadoAlunos)
 			{
 				return true;
 			}
-			else {
+			else
+			{
 				return false;
 			}
 		}
 
-	        public string gerarPauta()
-	        {
+	    public string gerarPauta()
+	    {
 			string pauta = $"Turma: {this.codigo} \n" +
 				$"Disciplina: {this.disciplina.nome} \n" +
 				$"Professor: {this.professor.nome} \n" +
-				$"Lista de Alunos:\n";
+				$"Lista de Alunos: ({this.alunos.Count})\n";
 		
 			foreach(Aluno aluno in this.alunos)
 			{
 				pauta += $"{aluno.nome}\n";
 			}
 			return pauta;
-	        }
-	}
+	    }
     }
 }
 
