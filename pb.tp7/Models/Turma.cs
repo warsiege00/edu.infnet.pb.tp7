@@ -41,20 +41,20 @@ namespace pb.tp7.Models
 			}
 		}
 
-        public string gerarPauta()
-        {
-		string pauta = $"Turma: {this.codigo} \n" +
-			$"Disciplina: {this.disciplina.nome} \n" +
-			$"Professor: {this.professor.nome} \n" +
-			$"Lista de Alunos:\n";
-	
-		foreach(Aluno aluno in this.alunos)
-		{
-			pauta += $"{aluno.nome}\n";
-		}
-		return pauta;
-        }
+	        public string gerarPauta()
+	        {
+			string pauta = $"Turma: {this.codigo} \n" +
+				$"Disciplina: {this.disciplina.nome} \n" +
+				$"Professor: {this.professor.nome} \n" +
+				$"Lista de Alunos:\n";
 		
+			foreach(Aluno aluno in this.alunos)
+			{
+				pauta += $"{aluno.nome}\n";
+			}
+			return pauta;
+	        }
+	}
     }
 }
 
